@@ -1,5 +1,5 @@
 const cvs = document.querySelector("canvas");
-const ctx= cvs.getContext("2d");
+const ctx = cvs.getContext("2d");
 
 cvs.width = 1800;
 cvs.height = 800;
@@ -14,9 +14,7 @@ var gen = 0; /* keep track of Grids */
 /* the initial grid */
 var grid = new Array(columns).fill(null).map(() =>
     new Array(rows).fill(null).map(() =>
-        Math.floor(Math.random() * 2)
-    )
-);
+        Math.floor(Math.random() * 2)));
 
 /* Start with initial (or last) grid and evaluate neighbors */
 function createNextGenGrid(prevGrid)
@@ -51,14 +49,14 @@ function createNextGenGrid(prevGrid)
             }
             
             if(cell == 1 && (neighbors < 2 || neighbors > 3)) 
-	    {
-		nextGrid[column][row] = 0;
-	    }
+            {
+                nextGrid[column][row] = 0;
+            }
             
-	    if(cell == 0 && neighbors == 3) 
-	    {
-		nextGrid[column][row] = 1;
-	    }
+            if(cell == 0 && neighbors == 3) 
+            {
+                nextGrid[column][row] = 1;
+            }
         }
     }
 
