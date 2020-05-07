@@ -1,8 +1,9 @@
+const generation = document.querySelector("#generation");
 const cvs = document.querySelector("canvas");
 const ctx = cvs.getContext("2d");
 
-cvs.width = 1800;
-cvs.height = 800;
+cvs.width = 900;
+cvs.height = 900;
 
 const res = 10; /* pixle size */
 
@@ -19,7 +20,7 @@ var grid = new Array(columns).fill(null).map(() =>
 /* Start with initial (or last) grid and evaluate neighbors */
 function createNextGenGrid(prevGrid)
 {
-    let nextGrid = prevGrid.map((newarray) =>  [...newarray]);
+    let nextGrid = prevGrid.map((newarray) => [...newarray]);
 
     for(let column = 0; column < prevGrid.length; column++)
     {
@@ -84,6 +85,8 @@ function run()
     grid = createNextGenGrid(grid)
 
     gen++;
+
+    generation.innerHTML = gen;
 
     render(grid);
 
